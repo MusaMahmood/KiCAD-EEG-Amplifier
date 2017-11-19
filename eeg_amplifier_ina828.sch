@@ -59,7 +59,7 @@ L R R2
 U 1 1 59FF62A1
 P 4650 2650
 F 0 "R2" V 4730 2650 50  0000 C CNN
-F 1 "R" V 4650 2650 50  0000 C CNN
+F 1 "10kΩ 1%" V 4550 2650 50  0000 C CNN
 F 2 "" V 4580 2650 50  0001 C CNN
 F 3 "" H 4650 2650 50  0001 C CNN
 	1    4650 2650
@@ -94,7 +94,7 @@ L C C1
 U 1 1 59FF64BE
 P 5500 2250
 F 0 "C1" H 5525 2350 50  0000 L CNN
-F 1 "C" H 5525 2150 50  0000 L CNN
+F 1 "10µF" H 5525 2150 50  0000 L CNN
 F 2 "" H 5538 2100 50  0001 C CNN
 F 3 "" H 5500 2250 50  0001 C CNN
 	1    5500 2250
@@ -134,8 +134,8 @@ Text Label 6100 2950 0    60   ~ 0
 REF
 Text GLabel 5700 3150 2    60   Input ~ 0
 AVSS
-Text Notes 6150 3600 0    60   ~ 0
-BIASREF_INT = 1 by def:\n4.5V/2 fed to +/BiasRef\nThis value (measured at VCAP 3 or 4) should be shared with REF???\nTry various connections including connecting directly to GND, to BIASOUT (on the ADS1299 BIAS output), etc, and see what performs most optimally. \nMost likely needs to be fed to (AVDD-AVSS/2), which is what the bias amp uses\nas reference
+Text Notes 6200 3150 0    60   ~ 0
+REF is directed to negative input, VOUT is the positive ADC input.\nBias/gnd config is unchanged
 $Comp
 L CONN_01X02 J3
 U 1 1 59FF91D7
@@ -253,12 +253,7 @@ Wire Wire Line
 Connection ~ 4800 2800
 Connection ~ 4800 2500
 Connection ~ 4800 2450
+Wire Wire Line
+	5700 3150 5350 3150
 Connection ~ 5350 3150
-Wire Wire Line
-	5700 3150 5650 3150
-Wire Wire Line
-	5700 3150 5700 3400
-Wire Wire Line
-	5700 3400 5350 3400
-Connection ~ 5350 3400
 $EndSCHEMATC
